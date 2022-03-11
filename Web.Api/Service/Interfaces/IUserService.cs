@@ -4,17 +4,17 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Web.Api.Models;
 using Web.Api.Models.Common;
-using Web.Api.Service.ViewModels;
+using Web.Api.Service.DTOs;
 
 namespace Web.Api.Service.Interfaces
 {
     public interface IUserService
     {
-        Task<UserModel> CreateAsync(UserForCreationViewModel model);
+        Task<UserModel> CreateAsync(UserRegisterDto model);
 
         Task<UserModel> UpdateAsync(UserModel model);
 
-        Task<UserModel> UpdateAsync(UserForPatchingViewModel model);
+        Task<UserModel> UpdateAsync(UserUpdatingDto model);
 
         Task<bool> DeleteAsync(Expression<Func<UserModel, bool>> expression);
 
@@ -22,6 +22,6 @@ namespace Web.Api.Service.Interfaces
 
         Task<BaseResponse<UserModel>> GetAsync(Expression<Func<UserModel, bool>> expression);
 
-        Task<BaseResponse<UserModel>> GetAsync(SignInModel signIn);
+        Task<BaseResponse<UserModel>> GetAsync(UserSignInDto signIn);
     }
 }

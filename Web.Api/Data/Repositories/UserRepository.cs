@@ -5,7 +5,7 @@ using Web.Api.Data.Contexts;
 using Web.Api.Data.IRepositories;
 using Web.Api.Enums;
 using Web.Api.Models;
-using Web.Api.Service.ViewModels;
+using Web.Api.Service.DTOs;
 
 namespace Web.Api.Data.Repositories
 {
@@ -16,7 +16,7 @@ namespace Web.Api.Data.Repositories
         {
         }
 
-        public async Task<UserModel> GetAsync(SignInModel signIn)
+        public async Task<UserModel> GetAsync(UserSignInDto signIn)
         {
             var user = _dbSet.FirstOrDefault(
                 p => p.Password == signIn.Password
@@ -25,7 +25,7 @@ namespace Web.Api.Data.Repositories
             return user;
         }
 
-        public async Task<UserModel> UpdateAsync(UserForPatchingViewModel model)
+        public async Task<UserModel> UpdateAsync(UserUpdatingDto model)
         {
             var user = await _dbSet.FindAsync(model.Id);
 

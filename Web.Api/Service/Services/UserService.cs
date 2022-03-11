@@ -9,7 +9,7 @@ using Web.Api.Models;
 using Web.Api.Models.Common;
 using Web.Api.Service.Extensions;
 using Web.Api.Service.Interfaces;
-using Web.Api.Service.ViewModels;
+using Web.Api.Service.DTOs;
 
 namespace Web.Api.Service.Services
 {
@@ -20,7 +20,7 @@ namespace Web.Api.Service.Services
         {
             _userRepository = userRepository;
         }
-        public Task<UserModel> CreateAsync(UserForCreationViewModel model)
+        public Task<UserModel> CreateAsync(UserRegisterDto model)
         {
             UserModel user = new UserModel
             {
@@ -28,7 +28,7 @@ namespace Web.Api.Service.Services
                 LastName = model.LastName,
                 Birthday = model.Birthday,
                 Email = model.Email,
-                Password = model.Password.HashPassword(),
+                Password = model.Password,
                 Username = model.Username
             };
 
@@ -64,7 +64,7 @@ namespace Web.Api.Service.Services
             return response;
         }
 
-        public async Task<BaseResponse<UserModel>> GetAsync(SignInModel signIn)
+        public async Task<BaseResponse<UserModel>> GetAsync(UserSignInDto signIn)
         {
             var response = new BaseResponse<UserModel>();
 
@@ -86,7 +86,7 @@ namespace Web.Api.Service.Services
             return _userRepository.UpdateAsync(model);
         }
 
-        public Task<UserModel> UpdateAsync(UserForPatchingViewModel model)
+        public Task<UserModel> UpdateAsync(UserUpdatingDto model)
         {
             return _userRepository.UpdateAsync(model);
         }

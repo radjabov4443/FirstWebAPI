@@ -1,13 +1,13 @@
 ﻿using System.Threading.Tasks;
 using Web.Api.Models;
-using Web.Api.Service.ViewModels;
+using Web.Api.Service.DTOs;
 
 namespace Web.Api.Data.IRepositories
 {
     public interface IUserRepository : IGenericRepository<UserModel>
     {
-        Task<UserModel> UpdateAsync(UserForPatchingViewModel model);
+        Task<UserModel> UpdateAsync(UserUpdatingDto model);
 
-        Task<UserModel> GetAsync(SignInModel signIn);
+        Task<UserModel> GetAsync(UserSignInDto signIn);
     }
 }

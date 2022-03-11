@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Web.Api.Models;
 using Web.Api.Service.Interfaces;
-using Web.Api.Service.ViewModels;
+using Web.Api.Service.DTOs;
 
 namespace Web.Api.Controllers
 {
@@ -19,7 +19,7 @@ namespace Web.Api.Controllers
         }
 
         [HttpPost]
-        public Task<UserModel> Create([FromForm]UserForCreationViewModel model)
+        public Task<UserModel> Create([FromForm]UserRegisterDto model)
         {
             return _userService.CreateAsync(model);
         }
@@ -39,7 +39,7 @@ namespace Web.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetInfo([FromQuery]SignInModel signIn)
+        public async Task<IActionResult> GetInfo([FromQuery]UserSignInDto signIn)
         {
             var result = await _userService.GetAsync(signIn);
 
@@ -59,7 +59,7 @@ namespace Web.Api.Controllers
         }
 
         [HttpPatch]
-        public Task<UserModel> Update([FromForm]UserForPatchingViewModel model)
+        public Task<UserModel> Update([FromForm]UserUpdatingDto model)
         {
             return _userService.UpdateAsync(model);
         }
