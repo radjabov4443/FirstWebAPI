@@ -1,15 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Web.Api.Data.IRepositories;
 using Web.Api.Models;
 using Web.Api.Models.Common;
+using Web.Api.Service.DTOs;
 using Web.Api.Service.Extensions;
 using Web.Api.Service.Interfaces;
-using Web.Api.Service.DTOs;
 
 namespace Web.Api.Service.Services
 {
@@ -53,7 +51,7 @@ namespace Web.Api.Service.Services
 
             var user = await _userRepository.GetAsync(expression);
 
-            if(user is null)
+            if (user is null)
             {
                 response.Error = new ErrorModel(404, "User not found!");
                 return response;
@@ -70,7 +68,7 @@ namespace Web.Api.Service.Services
 
             var user = await _userRepository.GetAsync(signIn);
 
-            if(user is null)
+            if (user is null)
             {
                 response.Error = new ErrorModel(404, "User not found!");
                 return response;

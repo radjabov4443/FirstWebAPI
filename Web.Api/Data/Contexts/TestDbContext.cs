@@ -10,6 +10,6 @@ namespace Web.Api.Data.Contexts
 
         }
 
-        public virtual DbSet<UserModel> Users { get; set; }  
+        public virtual DbSet<UserModel> Users { get; set; }
     }
 }

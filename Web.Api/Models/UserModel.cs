@@ -8,9 +8,9 @@ namespace Web.Api.Models
     public class UserModel : BaseEntity
     {
         public string FirstName { get; set; }
-        
+
         public string LastName { get; set; }
-        
+
         public DateTime Birthday { get; set; }
 
         [Required(ErrorMessage = "Username is required")]

@@ -1,10 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Web.Api.Models;
-using Web.Api.Service.Interfaces;
 using Web.Api.Service.DTOs;
+using Web.Api.Service.Interfaces;
 
 namespace Web.Api.Controllers
 {
@@ -19,7 +17,7 @@ namespace Web.Api.Controllers
         }
 
         [HttpPost]
-        public Task<UserModel> Create([FromForm]UserRegisterDto model)
+        public Task<UserModel> Create([FromForm] UserRegisterDto model)
         {
             return _userService.CreateAsync(model);
         }
@@ -39,7 +37,7 @@ namespace Web.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetInfo([FromQuery]UserSignInDto signIn)
+        public async Task<IActionResult> GetInfo([FromQuery] UserSignInDto signIn)
         {
             var result = await _userService.GetAsync(signIn);
 
@@ -53,13 +51,13 @@ namespace Web.Api.Controllers
         }
 
         [HttpPut]
-        public Task<UserModel> Update([FromForm]UserModel user)
+        public Task<UserModel> Update([FromForm] UserModel user)
         {
             return _userService.UpdateAsync(user);
         }
 
         [HttpPatch]
-        public Task<UserModel> Update([FromForm]UserUpdatingDto model)
+        public Task<UserModel> Update([FromForm] UserUpdatingDto model)
         {
             return _userService.UpdateAsync(model);
         }

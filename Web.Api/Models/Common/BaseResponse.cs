@@ -9,7 +9,7 @@
         }
 
         public T Data { get; set; }
-        
+
         public ErrorModel Error { get; set; }
     }
 }

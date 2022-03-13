@@ -13,7 +13,7 @@ namespace Web.Api.Service.Attributes
             int symbolChar = 0;
             int numberChar = 0;
 
-           foreach (char c in password)
+            foreach (char c in password)
             {
                 if (c > 96 && c < 123)
                     upperChar = 1;

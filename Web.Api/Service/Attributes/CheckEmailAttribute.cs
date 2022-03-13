@@ -10,7 +10,7 @@ namespace Web.Api.Service.Attributes
 
             if (email.Contains("@gmail.com") || email.Contains("@yandex.ru"))
                 return ValidationResult.Success;
-            
+
             return new ValidationResult("Please enter only gmail or yandex email!");
         }
     }
