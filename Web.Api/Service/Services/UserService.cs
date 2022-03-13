@@ -28,7 +28,7 @@ namespace Web.Api.Service.Services
                 LastName = model.LastName,
                 Birthday = model.Birthday,
                 Email = model.Email,
-                Password = model.Password,
+                Password = PasswordHash.Create(model.Password),
                 Username = model.Username
             };
 

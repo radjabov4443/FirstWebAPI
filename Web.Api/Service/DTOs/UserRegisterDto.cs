@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using Web.Api.Models;
+using Web.Api.Service.Attributes;
 
 namespace Web.Api.Service.DTOs
 {
@@ -11,11 +12,10 @@ namespace Web.Api.Service.DTOs
         public DateTime Birthday { get; set; }
 
         [Required]
-        [RegularExpression(@"^[a-zA-Z0-9_.-]+@[gmail|yandex]+.[a-zA-Z0-9-.]+$",
-           ErrorMessage = "Must be a valid email")]
         [StringLength(16,
-           ErrorMessage = "Must be between 5 and 50 characters",
+           ErrorMessage = "Must be be0tween 5 and 50 characters",
            MinimumLength = 5)]
+        [CheckEmail]
         public string Email { get; set; }
     }
 }
