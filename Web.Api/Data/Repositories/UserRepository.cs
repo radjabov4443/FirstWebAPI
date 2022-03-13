@@ -6,6 +6,7 @@ using Web.Api.Data.IRepositories;
 using Web.Api.Enums;
 using Web.Api.Models;
 using Web.Api.Service.DTOs;
+using Web.Api.Service.Services;
 
 namespace Web.Api.Data.Repositories
 {
@@ -19,7 +20,7 @@ namespace Web.Api.Data.Repositories
         public async Task<UserModel> GetAsync(UserSignInDto signIn)
         {
             var user = _dbSet.FirstOrDefault(
-                p => p.Password == signIn.Password
+                p => p.Password == PasswordHash.Create(signIn.Password)
                 && p.Username == signIn.Username);
 
             return user;

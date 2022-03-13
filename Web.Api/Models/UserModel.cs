@@ -18,7 +18,6 @@ namespace Web.Api.Models
 
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
-        //[CheckPassword]
         public string Password { get; set; }
 
         [StringLength(16,
