@@ -11,7 +11,7 @@ namespace Web.Api.Service.DTOs
         public DateTime Birthday { get; set; }
 
         [Required]
-        [StringLength(16,
+        [StringLength(50,
            ErrorMessage = "Must be be0tween 5 and 50 characters",
            MinimumLength = 5)]
         [CheckEmail]
