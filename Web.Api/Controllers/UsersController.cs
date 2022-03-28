@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Web.Api.Models;
 using Web.Api.Service.DTOs;
@@ -23,7 +24,7 @@ namespace Web.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll(int pageSize, int pageIndex)
+        public async Task<ActionResult<IEnumerable<UserModel>>> GetAll(int pageSize, int pageIndex)
         {
             return Ok(await _userService.GetAllAsync(pageSize, pageIndex));
         }

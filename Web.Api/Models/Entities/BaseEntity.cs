@@ -3,12 +3,12 @@ using Web.Api.Enums;
 
 namespace Web.Api.Models.Entities
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         public long Id { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
 
-        public DateTime EditedDate { get; set; }
+        public DateTime EditedDate { get; set; } = DateTime.Now;
 
         public long UpdatedBy { get; set; }
 
