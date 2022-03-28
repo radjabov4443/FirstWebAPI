@@ -28,7 +28,7 @@ namespace Web.Api
 
             services.AddDbContext<TestDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("TestDbConnection"));
+                options.UseNpgsql(Configuration.GetConnectionString("TestDbConnection"));
             });
 
             services.AddControllers();
